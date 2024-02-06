@@ -33,8 +33,7 @@ export class LoginComponent implements OnInit {
 
   
   onLogin() {
-   this.route1.navigateByUrl('profil/1');
-
+   this.route1.navigateByUrl('projects');
 
   }
  
