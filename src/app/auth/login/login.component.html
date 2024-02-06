@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <!-- Image Section -->
+      <div class="col-md-6 d-none d-md-block">
+        <img src="path-to-your-image.jpg" alt="Login Image" class="img-fluid">
+      </div>
+  
+      <!-- Login Form Section -->
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <button [disabled]="loading" type="submit" class="btn btn-primary w-100">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+              Login
+            </button>
+          </div>
+          
+          <div class="form-group text-center">
+            <a routerLink="/register" class="btn btn-link">Register</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
